@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User create (@Valid @RequestBody User user) {
+    public User create(@Valid @RequestBody User user) {
         String name = user.getName();
         String login = user.getLogin();
         if (name == null || name.isEmpty()) {
@@ -41,13 +41,13 @@ public class UserController {
     }
 
     @GetMapping
-    public Collection <User> getUsers (){
+    public Collection<User> getUsers() {
         log.info("Список пользователей: " + users.values());
         return users.values();
     }
 
     @PutMapping
-    public User update (@Valid @RequestBody User user) {
+    public User update(@Valid @RequestBody User user) {
         if (users.containsKey(user.getId())) {
             users.put(user.getId(),user);
             log.info("Пользователь ID: " + user.getId() + ", Имя: " + user.getName() + ", обновлен.");

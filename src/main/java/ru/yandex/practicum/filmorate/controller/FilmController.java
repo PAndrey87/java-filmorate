@@ -16,19 +16,19 @@ import java.util.Map;
 @RequestMapping("/films")
 public class FilmController {
 
-    LocalDate MIN_RELEASE_DATE = LocalDate.parse("1895-12-28");
-    Integer MAX_DESCRIPTION_LENGTH = 200;
+    LocalDate minRelaseDate = LocalDate.parse("1895-12-28");
+    Integer maxDescriptionLenngth = 200;
     Integer filmID = 1;
     Map<Integer,Film> films = new HashMap<Integer, Film>();
 
-    private Integer generatedID () {
+    private Integer generatedID() {
         log.debug("Generated filmID: " + filmID);
         return filmID++;
     }
 
 
     @PostMapping
-    public Film create (@Valid @RequestBody Film film) {
+    public Film create(@Valid @RequestBody Film film) {
 
         validate(film);
         film.setId(generatedID());
@@ -55,7 +55,7 @@ public class FilmController {
         }
     }
 
-    public void validate (Film film) {
+    public void validate(Film film) {
         String name = film.getName();
         String description = film.getDescription();
         LocalDate releaseDate = film.getReleaseDate();
@@ -63,10 +63,10 @@ public class FilmController {
         if (name == null || name.isEmpty()) {
             log.warn("название пустое");
             throw new ValidationException("название не может быть пустым");
-        } else if (description.length() > MAX_DESCRIPTION_LENGTH) {
+        } else if (description.length() > maxDescriptionLenngth) {
             log.warn("описание больше 200");
             throw new ValidationException("максимальная длина описания — 200 символов");
-        } else if (releaseDate.isBefore(MIN_RELEASE_DATE)) {
+        } else if (releaseDate.isBefore(minRelaseDate)) {
             log.warn("дата релиза —  раньше 28 декабря 1895 года");
             throw new ValidationException("дата релиза — не раньше 28 декабря 1895 года");
         } else if (duration < 0) {
