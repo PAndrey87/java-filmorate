@@ -14,12 +14,12 @@ public class UserControllerTests {
     private UserController userController;
 
     @BeforeEach
-    public void setUp () {
+    public void setUp() {
         userController = new UserController();
     }
 
     @Test
-    public void createUserWithoutError () {
+    public void createUserWithoutError() {
         User user = User.builder()
                 .name(getRandomWorld(10))
                 .email("user@example.com")
@@ -33,7 +33,7 @@ public class UserControllerTests {
     }
 
     @Test
-    public void createUserWitnErrorEmail () {
+    public void createUserWitnErrorEmail() {
         User user = User.builder()
                 .name(getRandomWorld(10))
                 .email("     ")
@@ -46,7 +46,7 @@ public class UserControllerTests {
     }
 
     @Test
-    public void createUserWitnErrorLogin () {
+    public void createUserWitnErrorLogin() {
         User user = User.builder()
                 .name(getRandomWorld(10))
                 .email("user@example.com")
@@ -59,7 +59,7 @@ public class UserControllerTests {
     }
 
     @Test
-    public void createUserWitnoutName () {
+    public void createUserWitnoutName() {
         User user = User.builder()
                 .name(null)
                 .email("user@example.com")
@@ -72,7 +72,7 @@ public class UserControllerTests {
     }
 
     @Test
-    public void createUserWitnErrorDate () {
+    public void createUserWitnErrorDate() {
         User user = User.builder()
                 .name(getRandomWorld(10))
                 .email("user@example.com")
@@ -84,7 +84,7 @@ public class UserControllerTests {
         assertEquals("дата рождения в будущем", exception.getMessage());
     }
 
-    public String getRandomWorld (Integer length) {
+    public String getRandomWorld(Integer length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random(characters.length());
         String result = "";

@@ -14,12 +14,12 @@ public class FilmControllerTests {
     private FilmController filmController;
 
     @BeforeEach
-    public void setUp () {
+    public void setUp() {
         filmController = new FilmController();
     }
 
     @Test
-    public void createFilmWithoutError () {
+    public void createFilmWithoutError() {
         Film film = Film.builder()
                 .name(getRandomWorld(10))
                 .description(getRandomWorld(50))
@@ -33,7 +33,7 @@ public class FilmControllerTests {
     }
 
     @Test
-    public void createFilmWitnErrorDate () {
+    public void createFilmWitnErrorDate() {
         Film film = Film.builder()
                 .name(getRandomWorld(10))
                 .description(getRandomWorld(50))
@@ -46,7 +46,7 @@ public class FilmControllerTests {
     }
 
     @Test
-    public void createFilmWitnErrorName () {
+    public void createFilmWitnErrorName() {
         Film film = Film.builder()
                 .name(null)
                 .description(getRandomWorld(50))
@@ -59,7 +59,7 @@ public class FilmControllerTests {
     }
 
     @Test
-    public void createFilmWitnErrorDescription () {
+    public void createFilmWitnErrorDescription() {
         Film film = Film.builder()
                 .name(getRandomWorld(10))
                 .description(getRandomWorld(201))
@@ -72,7 +72,7 @@ public class FilmControllerTests {
     }
 
     @Test
-    public void createFilmWitnErrorDuration () {
+    public void createFilmWitnErrorDuration() {
         Film film = Film.builder()
                 .name(getRandomWorld(10))
                 .description(getRandomWorld(50))
@@ -84,7 +84,7 @@ public class FilmControllerTests {
         assertEquals("продолжительность фильма должна быть положительной", exception.getMessage());
     }
 
-    public String getRandomWorld (Integer length) {
+    public String getRandomWorld(Integer length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random(characters.length());
         String result = "";
