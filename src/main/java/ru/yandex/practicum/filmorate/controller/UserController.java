@@ -16,8 +16,8 @@ import java.util.Map;
 @RequestMapping("/users")
 public class UserController {
 
-    Integer userID = 1;
-    Map<Integer,User> users = new HashMap<>();
+    private Integer userID = 1;
+    private final Map<Integer,User> users = new HashMap<>();
 
     private Integer generatedID() {
         log.debug("Генерация ID: " + userID);
@@ -57,7 +57,7 @@ public class UserController {
         }
     }
 
-    private static void validate(User user) {
+    private void validate(User user) {
         String email = user.getEmail();
         String login = user.getLogin();
         LocalDate birthday = user.getBirthday();

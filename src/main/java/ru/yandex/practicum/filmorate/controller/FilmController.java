@@ -16,10 +16,10 @@ import java.util.Map;
 @RequestMapping("/films")
 public class FilmController {
 
-    LocalDate minRelaseDate = LocalDate.parse("1895-12-28");
-    Integer maxDescriptionLenngth = 200;
-    Integer filmID = 1;
-    Map<Integer,Film> films = new HashMap<Integer, Film>();
+    private final LocalDate minRelaseDate = LocalDate.parse("1895-12-28");
+    private final Integer maxDescriptionLenngth = 200;
+    private Integer filmID = 1;
+    private final Map<Integer,Film> films = new HashMap<Integer, Film>();
 
     private Integer generatedID() {
         log.debug("Generated filmID: " + filmID);
@@ -55,7 +55,7 @@ public class FilmController {
         }
     }
 
-    public void validate(Film film) {
+    private void validate(Film film) {
         String name = film.getName();
         String description = film.getDescription();
         LocalDate releaseDate = film.getReleaseDate();
