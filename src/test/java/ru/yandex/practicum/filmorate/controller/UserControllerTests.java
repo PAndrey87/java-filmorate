@@ -1,6 +1,5 @@
 package ru.yandex.practicum.filmorate.controller;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.yandex.practicum.filmorate.exception.ValidationException;
 import ru.yandex.practicum.filmorate.model.User;
@@ -13,10 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserControllerTests {
     private UserController userController;
 
-    @BeforeEach
-    public void setUp() {
-        userController = new UserController();
-    }
+
 
     @Test
     public void createUserWithoutError() {
