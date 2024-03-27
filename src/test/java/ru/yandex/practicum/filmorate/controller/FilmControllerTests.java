@@ -25,6 +25,7 @@ public class FilmControllerTests {
     public void setUp() {
         filmController = new FilmController(filmService);
     }
+
     @Test
     public void createFilmWithoutError() {
         Film film = Film.builder()
@@ -36,7 +37,6 @@ public class FilmControllerTests {
         filmController.create(film);
         assertEquals(1, filmController.getFilms().size());
         assertTrue(filmController.getFilms().contains(film));
-
     }
 
     @Test
